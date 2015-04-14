@@ -29,11 +29,33 @@ class LinkedListItem
   end
 
   def <=> another
-    self.payload.to_s <=> another.payload.to_s
+    link1 = self.payload
+    link2 = another.payload
+    link1_val = if link1.is_a?(Symbol)
+                  3
+                elsif link1.is_a?(String)
+                  2
+                elsif link1.is_a?(Fixnum)
+                  1
+                end
+    link2_val = if link2.is_a?(Symbol)
+                  3
+                elsif link2.is_a?(String)
+                  2
+                elsif link2.is_a?(Fixnum)
+                  1
+                end
+
+
+    if link1.class == link2.class
+      link1 <=> link2
+    else
+      link1_val <=> link2_val
+    end
+
   end
 
   def === another
     self.inspect.eql?(another.inspect) || false
   end
-
 end
