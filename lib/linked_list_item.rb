@@ -8,6 +8,7 @@ class LinkedListItem
   end
 
   def next_item= (data)
+    raise ArgumentError if self == data
     #Note the = sign at the end of the method
     #When the interpreter sees the message 
     #"next_item" followed by " =", it automatically ignores the space 
