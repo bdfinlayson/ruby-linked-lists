@@ -28,6 +28,7 @@ class LinkedListItem
     @next_item.nil? || false
   end
 
+  #my solution to the tests using comparable
   def <=> another
     link1 = self.payload
     link2 = another.payload
@@ -47,13 +48,32 @@ class LinkedListItem
                 end
 
 
-    if link1.class == link2.class
+    if link1_val == link2_val
       link1 <=> link2
     else
       link1_val <=> link2_val
     end
-
   end
+
+  #  Option 1: solution given in class for tests using comparables
+  #
+  #  def <=> (other)
+  #    if self.payload.class == other.payload.class
+  #      self.payload <=> other.payload
+  #    else
+  #      self.payload.class.to_s <=> other.payload.class.to_s
+  #this else statement only works because the classes Fixnum, String, and Symbol just happen by chance to be in alphabetical order and strings are compared against one another in alphabetical order
+  #    end
+  #  end
+
+  #  Option 2: solution given in class for tests using comparables
+  #
+  #  def <=> (other)
+  #  class_precedence = [Fixnum, String, Symbol]
+  #  left_precedence = class_precedence.index(self.payload.class)
+  #  right_precedence = class_precedence.index(other.payload.class)
+  #  left_precedence <=> right_precedence
+  #  end
 
   def === another
     self.inspect.eql?(another.inspect) || false
