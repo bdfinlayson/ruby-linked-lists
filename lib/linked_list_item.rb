@@ -22,4 +22,8 @@ class LinkedListItem
     #it would be a.next_item = 'a value'
     @next_item = data
   end
+
+  def last?
+    true
+  end
 end
