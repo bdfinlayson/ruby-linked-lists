@@ -1,23 +1,24 @@
 require_relative 'linked_list_item'
 
 class LinkedList
+  def initialize
+    @size = 0
+  end
 
 
   def get(nth_item)
-    if nth_item < 0
+    if nth_item < 0 || @first_item.nil? || nth_item > @size
       raise IndexError
     end
 
     if nth_item == 0
       @first_item.payload
+    elsif nth_item == 1
+      @last_item.payload
     else
-      if @last_item.next_item.nil?
-        raise NoMethodError
-      end
       count = 0
       current_node = @first_item
       while count < nth_item
-      #while count <= nth_item - 1
         current_node = current_node.next_item
         count = count + 1
       end
@@ -33,5 +34,6 @@ class LinkedList
       @last_item.next_item = LinkedListItem.new(item)
       @last_item = @last_item.next_item
     end
+      @size += 1
   end
 end
