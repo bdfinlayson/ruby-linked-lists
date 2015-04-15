@@ -1,13 +1,19 @@
+require_relative 'linked_list_item'
+
 class LinkedList
 
+
   def get(nth_item)
-    if nth_item.to_s[/-/]
+    if nth_item < 0
       raise IndexError
     end
 
     if nth_item == 0
       @first_item.payload
     else
+      if @last_item.next_item.nil?
+        raise NoMethodError
+      end
       count = 0
       current_node = @first_item
       while count < nth_item
