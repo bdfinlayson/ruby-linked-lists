@@ -1,6 +1,7 @@
 require_relative 'linked_list_item'
 
 class LinkedList
+  attr_reader :size
   def initialize
     @size = 0
   end
@@ -14,7 +15,7 @@ class LinkedList
     if nth_item == 0
       @first_item.payload
     elsif nth_item == 1
-      @last_item.payload
+      @first_item.next_item.payload
     else
       count = 0
       current_node = @first_item
