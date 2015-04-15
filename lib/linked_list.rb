@@ -1,6 +1,10 @@
 class LinkedList
 
   def get(nth_item)
+    if nth_item.to_s[/-/]
+      raise IndexError
+    end
+
     if nth_item == 0
       @first_item.payload
     else
