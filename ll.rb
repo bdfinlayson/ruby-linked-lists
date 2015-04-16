@@ -8,18 +8,7 @@ ll = LinkedList.new
 
 payloads.each { |x| ll.push(x) }
 
-#while counter < payloads.size do
-#  LinkedList.new
-#end
-
-# Now, build a LinkedList
-# And, populate it
-#
-# <YOUR CODE GOES HERE>
-
 size = ll.size
-
-
 
 counter = 0
 itemArr = []
@@ -43,8 +32,3 @@ else
 end
 
 print output
-
-
-# Then, print it out
-#
-# <YOUR CODE GOES HERE>
