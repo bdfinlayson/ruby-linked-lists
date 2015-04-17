@@ -2,8 +2,27 @@ require_relative 'linked_list_item'
 
 class LinkedList
   attr_reader :size
+  attr_reader :last
   def initialize
     @size = 0
+  end
+
+  def to_s
+    count = 0
+    if @first_item.nil?
+      "| |"
+    else
+      while count < @size
+        arr = []
+        arr << @last_item.payload
+        count += 1
+      end
+        first_part = "| "
+        words = arr.join(" ")
+        last_part = " |"
+        puts first_part + words + last_part
+        first_part + words + last_part
+    end
   end
 
 
@@ -35,6 +54,8 @@ class LinkedList
       @last_item.next_item = LinkedListItem.new(item)
       @last_item = @last_item.next_item
     end
+      @last = @last_item.payload
       @size += 1
   end
 end
+
